@@ -25,3 +25,15 @@ const factorial = function(x) {
   }
   return final_product;
 };
+
+let firstNumber;
+let operator;
+let secondNumber;
+
+const operate = function(firstNumber, operator, secondNumber){
+  let answer;
+  if(operator === '+') answer = add(firstNumber, secondNumber);
+  else if(operator === '-') answer = subtract(firstNumber, secondNumber);
+  else if(operator === '*') answer = multiply(firstNumber, secondNumber);
+  else if(operator === '/') answer = divide(firstNumber, secondNumber);
+}
