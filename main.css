@@ -1,3 +1,23 @@
+#body{
+    background-color: black;
+}
 button{
     border-radius: 30px;
+    border: none;
+    color: white;
+}
+
+#plusMinus, #AC{
+    /*font-size: 0.5em;*/
+}
+
+.misc {
+    background-color: #a5a5a5;
+}
+.digit {
+    background-color: #333333;
+}
+
+.operator{
+    background-color: #ff9f0c;
 }
