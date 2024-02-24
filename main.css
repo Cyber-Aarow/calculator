@@ -15,7 +15,6 @@
     flex-direction: column;
 }
 
-
 button{
     border-radius: 30px;
     border: none;
@@ -36,4 +35,14 @@ button{
 
 .operator{
     background-color: #ff9f0c;
+}
+
+#whiteLine{
+    background-color: white;
+    height: 1.2px;
+    width: 33.5px;
+    border-radius: 8px;
+    
+    margin-left: 32px;
+    margin-top: 10px;
 }
