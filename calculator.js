@@ -119,6 +119,7 @@ for(let i = 0; i < operators.length; i++){
     operators[i].addEventListener("click", ()=> {
       secondNumber = Number(displayNumber);
       displayNumber = operate(firstNumber, operator, secondNumber);
+      operatorSelected = true;
     });
   }
 }
