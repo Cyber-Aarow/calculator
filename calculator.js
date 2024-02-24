@@ -1,3 +1,4 @@
+//Basic math operator functions
 const add = function(x, y) {
 	return x + y;
 };
@@ -26,14 +27,18 @@ const factorial = function(x) {
   return final_product;
 };
 
-let firstNumber;
-let operator;
-let secondNumber;
-
+//Call correct function per operator choice
 const operate = function(firstNumber, operator, secondNumber){
   let answer;
   if(operator === '+') answer = add(firstNumber, secondNumber);
   else if(operator === '-') answer = subtract(firstNumber, secondNumber);
   else if(operator === '*') answer = multiply(firstNumber, secondNumber);
   else if(operator === '/') answer = divide(firstNumber, secondNumber);
+  return answer;
 }
+
+
+let displayNumber = document.querySelector('#displayNumber');
+let firstNumber;
+let operator;
+let secondNumber;
