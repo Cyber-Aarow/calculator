@@ -43,6 +43,9 @@ displayNumber.textContent = '0';
 let firstNumber = 0;
 let operator;
 let secondNumber;
+let operatorSelected = false;
+
+
 
 //Add values to all the digit buttons
 let zero = document.querySelector('#zero');
@@ -57,8 +60,6 @@ let eight = document.querySelector('#eight');
 let nine = document.querySelector('#nine');
 let decimal = document.querySelector('#decimal');
 
-let digits = document.querySelectorAll(".digit");
-
 zero.value = '0';
 one.value = '1';
 two.value = '2';
@@ -72,17 +73,48 @@ nine.value = '9';
 decimal.value = '.';
 
 //Clicking a digit button will change the number
+let digits = document.querySelectorAll(".digit");
+
 for(let i = 0; i < digits.length; i++){
   digits[i].addEventListener("click", ()=> {
     let nextDisplayDigit = digits[i].value;
     if(displayNumber.textContent === '0' ||
-    displayNumber.textContent === '+' ||
-    displayNumber.textContent === '-' ||
-    displayNumber.textContent === 'x' ||
-    displayNumber.textContent === '÷') displayNumber.textContent = nextDisplayDigit;
+    operatorSelected === true) displayNumber.textContent = nextDisplayDigit;
     else{
       //if(displayNumber.textContent.length % 3 === 0)
       displayNumber.textContent = displayNumber.textContent + nextDisplayDigit;
     }   
   });
+}
+
+
+
+
+//Operator buttons
+let plus = document.querySelector('#plus');
+let minus = document.querySelector('#minus');
+let times = document.querySelector('#times');
+let div = document.querySelector('#div');
+let equals = document.querySelector('#equals');
+
+plus.value = '+';
+minus.value = '-';
+times.value = '*';
+div.value = '/';
+equals.value = '=';
+
+let operators = document.querySelectorAll('.operator');
+for(let i = 0; i < operators.length; i++){
+  if(operators[i].value != '='){
+    operators[i].addEventListener("click", ()=> {
+      firstNumber = Number(displayNumber);
+      operator = operators[i].value;
+    });
+  }
+  else{
+    operators[i].addEventListener("click", ()=> {
+      secondNumber = Number(displayNumber);
+      displayNumber = operate(firstNumber, operator, secondNumber);
+    });
+  }
 }
