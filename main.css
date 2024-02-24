@@ -1,10 +1,26 @@
 #body{
     background-color: black;
+    width: 97.5px;
+    height: 211px;
+    border-radius: 8px;
 }
+
+#display{
+    height:80px;
+    width:fit-content;
+}
+
+#buttons{
+    display: flex;
+    flex-direction: column;
+}
+
+
 button{
     border-radius: 30px;
     border: none;
     color: white;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 #plusMinus, #AC{
