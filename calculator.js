@@ -78,8 +78,11 @@ let digits = document.querySelectorAll(".digit");
 for(let i = 0; i < digits.length; i++){
   digits[i].addEventListener("click", ()=> {
     let nextDisplayDigit = digits[i].value;
-    if(displayNumber.textContent === '0' ||
-    operatorSelected === true) displayNumber.textContent = nextDisplayDigit;
+    if(displayNumber.textContent === '0'||
+    operatorSelected === true){
+      displayNumber.textContent = nextDisplayDigit;
+      operatorSelected = false;
+    }
     else{
       //if(displayNumber.textContent.length % 3 === 0)
       displayNumber.textContent = displayNumber.textContent + nextDisplayDigit;
@@ -109,6 +112,7 @@ for(let i = 0; i < operators.length; i++){
     operators[i].addEventListener("click", ()=> {
       firstNumber = Number(displayNumber);
       operator = operators[i].value;
+      operatorSelected = true;
     });
   }
   else{
