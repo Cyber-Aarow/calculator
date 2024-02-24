@@ -44,6 +44,9 @@ let operator;
 let secondNumber;
 
 //All the digit buttons
+let nextDisplayDigit;
+
+let zero = document.querySelector('#zero');
 let one = document.querySelector('#one');
 let two = document.querySelector('#two');
 let three = document.querySelector('#three');
@@ -56,3 +59,15 @@ let nine = document.querySelector('#nine');
 let decimal = document.querySelector('#decimal');
 
 let digits = document.querySelectorAll(".digit");
+
+zero.value = '0';
+one.value = '1';
+two.value = '2';
+three.value = '3';
+four.value = '4';
+five.value = '5';
+six.value = '6';
+seven.value = '7';
+eight.value = '8';
+nine.value = '9';
+decimal.value = '.';
