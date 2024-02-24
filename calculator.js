@@ -37,15 +37,14 @@ const operate = function(firstNumber, operator, secondNumber){
   return answer;
 }
 
-
+//Set up universal variables; set original number to 0
 let displayNumber = document.querySelector('#displayNumber');
-let firstNumber;
+displayNumber.textContent = '0';
+let firstNumber = 0;
 let operator;
 let secondNumber;
 
-//All the digit buttons
-let nextDisplayDigit;
-
+//Add values to all the digit buttons
 let zero = document.querySelector('#zero');
 let one = document.querySelector('#one');
 let two = document.querySelector('#two');
@@ -71,3 +70,19 @@ seven.value = '7';
 eight.value = '8';
 nine.value = '9';
 decimal.value = '.';
+
+//Clicking a digit button will change the number
+for(let i = 0; i < digits.length; i++){
+  digits[i].addEventListener("click", ()=> {
+    let nextDisplayDigit = digits[i].value;
+    if(displayNumber.textContent === '0' ||
+    displayNumber.textContent === '+' ||
+    displayNumber.textContent === '-' ||
+    displayNumber.textContent === 'x' ||
+    displayNumber.textContent === '÷') displayNumber.textContent = nextDisplayDigit;
+    else{
+      //if(displayNumber.textContent.length % 3 === 0)
+      displayNumber.textContent = displayNumber.textContent + nextDisplayDigit;
+    }   
+  });
+}
