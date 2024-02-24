@@ -97,29 +97,25 @@ for(let i = 0; i < digits.length; i++){
 let plus = document.querySelector('#plus');
 let minus = document.querySelector('#minus');
 let times = document.querySelector('#times');
-let div = document.querySelector('#div');
+let division = document.querySelector('#divide');
 let equals = document.querySelector('#equals');
 
 plus.value = '+';
 minus.value = '-';
 times.value = '*';
-div.value = '/';
-equals.value = '=';
+division.value = '/';
 
-let operators = document.querySelectorAll('.operator');
-for(let i = 0; i < operators.length; i++){
-  if(operators[i].value != '='){
-    operators[i].addEventListener("click", ()=> {
-      firstNumber = Number(displayNumber);
-      operator = operators[i].value;
-      operatorSelected = true;
-    });
-  }
-  else{
-    operators[i].addEventListener("click", ()=> {
-      secondNumber = Number(displayNumber);
+let notEquals = document.querySelectorAll('.notEquals');
+for(let i = 0; i < notEquals.length; i++){
+  notEquals[i].addEventListener("click", ()=> {
+    firstNumber = Number(displayNumber);
+    operator = notEquals[i].value;
+    operatorSelected = true;
+  });
+}
+
+equals.addEventListener("click", ()=> {
+  secondNumber = Number(displayNumber);
       displayNumber = operate(firstNumber, operator, secondNumber);
       operatorSelected = true;
-    });
-  }
-}
+});
