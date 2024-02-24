@@ -108,14 +108,15 @@ division.value = '/';
 let notEquals = document.querySelectorAll('.notEquals');
 for(let i = 0; i < notEquals.length; i++){
   notEquals[i].addEventListener("click", ()=> {
-    firstNumber = Number(displayNumber);
+    firstNumber = Number(displayNumber.textContent);
     operator = notEquals[i].value;
     operatorSelected = true;
   });
 }
 
 equals.addEventListener("click", ()=> {
-  secondNumber = Number(displayNumber);
-      displayNumber = operate(firstNumber, operator, secondNumber);
+  secondNumber = Number(displayNumber.textContent);
+      let solution = operate(firstNumber, operator, secondNumber);
+      displayNumber.textContent = solution.toString();
       operatorSelected = true;
 });
