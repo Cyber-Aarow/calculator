@@ -5,13 +5,17 @@
     border-radius: 8px;
 }
 
+#top{
+    height: 10px;
+}
+
 #display{
     height:80px;
-    width: 90%;
+    width: 80%;
     color: white;
     display: flex;
     align-items: end;
-    margin: 0px 5px 0px 5px;
+    margin: 0px 10px 0px 10px;
 }
 
 #displayNumber{
@@ -21,16 +25,20 @@
 
 .row{
     margin-bottom: 1px;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 #buttons{
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
+    margin-top: 7%;
 }
 
 button{
-    width: 1.35em;
-    height: 1.35em;
+    width: 18px;
+    height: 18px;
     border-radius: 30px;
     border: none;
     color: white;
@@ -39,7 +47,7 @@ button{
 }
 
 #plusMinus, #AC{
-    /*font-size: 0.25em;*/
+    font-size: 0.25em;
 }
 
 .misc {
@@ -60,5 +68,10 @@ button{
     border-radius: 8px;
 
     margin-left: 32px;
-    margin-top: 8px;
+    margin-top: 12px;
+}
+
+#zero{
+    width: 36px;
+    text-align: left;
 }
