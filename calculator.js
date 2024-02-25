@@ -57,8 +57,8 @@ AC.addEventListener("click", ()=> {
 });
 
 plusMinus.addEventListener("click", ()=> {
-  if(displayNumber.textContent.charAt(0) === '-'){
-    displayNumber.textContent.replace('-', '');
+  if(displayNumber.textContent.includes('-')){
+    displayNumber.textContent = displayNumber.textContent.replace('-', '');
   }
   else{
     displayNumber.textContent = '-' + displayNumber.textContent;
