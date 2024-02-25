@@ -49,7 +49,7 @@ let operatorSelected = false;
 //Misc buttons
 let AC = document.querySelector('#AC');
 let plusMinus = document.querySelector('#plusMinus');
-let pwr = document.querySelector('#power');
+
 
 AC.addEventListener("click", ()=> {
   displayNumber.textContent = '0';
@@ -113,6 +113,7 @@ for(let i = 0; i < digits.length; i++){
 
 
 //Operator buttons
+let pwr = document.querySelector('#power');
 let plus = document.querySelector('#plus');
 let minus = document.querySelector('#minus');
 let times = document.querySelector('#times');

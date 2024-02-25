@@ -50,15 +50,16 @@ button{
     font-size: 0.25em;
 }
 
-.misc {
-    background-color: #a5a5a5;
-}
 .digit {
     background-color: #333333;
 }
 
 .operator{
     background-color: #ff9f0c;
+}
+
+.misc {
+    background-color: #a5a5a5;
 }
 
 #whiteLine{
