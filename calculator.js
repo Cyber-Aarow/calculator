@@ -52,7 +52,8 @@ let plusMinus = document.querySelector('#plusMinus');
 let pwr = document.querySelector('#power');
 
 AC.addEventListener("click", ()=> {
-  displayNumber = '0';
+  displayNumber.textContent = '0';
+  AC.textContent = 'AC';
 });
 
 plusMinus.addEventListener("click", ()=> {
@@ -105,7 +106,6 @@ for(let i = 0; i < digits.length; i++){
     else{
       //if(displayNumber.textContent.length % 3 === 0)
       displayNumber.textContent = displayNumber.textContent + nextDisplayDigit;
-      AC.textContent = 'AC';
     }   
   });
 }
@@ -138,5 +138,6 @@ equals.addEventListener("click", ()=> {
       let solution = operate(firstNumber, operator, secondNumber);
       displayNumber.textContent = solution.toString();
       operatorSelected = true;
+      if(displayNumber.textContent === '0') AC.textContent = 'AC';
 });
 
