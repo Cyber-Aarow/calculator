@@ -46,8 +46,26 @@ let secondNumber;
 let operatorSelected = false;
 
 
+//Misc buttons
+let AC = document.querySelector('#AC');
+let plusMinus = document.querySelector('#plusMinus');
+let pwr = document.querySelector('#power');
 
-//Add values to all the digit buttons
+AC.addEventListener("click", ()=> {
+  displayNumber = '0';
+});
+
+plusMinus.addEventListener("click", ()=> {
+  if(displayNumber.textContent.charAt(0) === '-'){
+    displayNumber.textContent.replace('-', '');
+  }
+  else{
+    displayNumber.textContent = '-' + displayNumber.textContent;
+  }
+});
+
+
+//Digit buttons
 let zero = document.querySelector('#zero');
 let one = document.querySelector('#one');
 let two = document.querySelector('#two');
@@ -82,14 +100,15 @@ for(let i = 0; i < digits.length; i++){
     operatorSelected === true){
       displayNumber.textContent = nextDisplayDigit;
       operatorSelected = false;
+      AC.textContent = 'C';
     }
     else{
       //if(displayNumber.textContent.length % 3 === 0)
       displayNumber.textContent = displayNumber.textContent + nextDisplayDigit;
+      AC.textContent = 'AC';
     }   
   });
 }
-
 
 
 
@@ -120,3 +139,4 @@ equals.addEventListener("click", ()=> {
       displayNumber.textContent = solution.toString();
       operatorSelected = true;
 });
+
