@@ -7,13 +7,13 @@ const subtract = function(x, y) {
 	return x - y;
 };
 
-const multiply = function(array) {
-  return array.reduce((product, current) => product * current)
+const multiply = function(x, y) {
+  return x * y;
 };
 
 const divide = function(x, y){
   return x / y;
-}
+};
 
 const power = function(x, y) {
 	return x ** y;
