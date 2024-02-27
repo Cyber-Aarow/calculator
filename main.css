@@ -55,8 +55,12 @@ button{
     background-color: #333333;
 }
 
-.digit:active, .digit:hover{
+.digit:hover{
     background-color: #737373;
+}
+
+.digit:active{
+    background-color: #252525;
 }
 
 .operator{
@@ -67,12 +71,20 @@ button{
     background-color: #fcc78d;
 }
 
+.operator:active{
+    background-color:#e28c0c;
+}
+
 .misc {
     background-color: #a5a5a5;
 }
 
 .misc:hover{
     background-color: #d9d9d9;
+}
+
+.misc:active{
+    background-color: #807e7e;
 }
 
 #whiteLine{
