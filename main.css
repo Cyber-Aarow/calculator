@@ -44,6 +44,7 @@ button{
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
+    transition: 0.3s;
 }
 
 #plusMinus, #AC{
@@ -54,12 +55,47 @@ button{
     background-color: #333333;
 }
 
+.digit:hover{
+    background-color: #737373;
+}
+
+.digit:active{
+    background-color: #252525;
+}
+
 .operator{
     background-color: #ff9f0c;
+    color: white;
+}
+
+.operator:hover{
+    background-color: #fcc78d;
+}
+
+.operator:active{
+    background-color:#e28c0c;
+}
+
+.operator.notEquals:focus{
+    background-color: white;
+    color:#ff9f0c;
 }
 
 .misc {
     background-color: #a5a5a5;
+}
+
+.misc:hover{
+    background-color: #d9d9d9;
+}
+
+.misc:active{
+    background-color: #807e7e;
+}
+
+.misc.operator:focus{
+    background-color: white;
+    color: #a5a5a5;
 }
 
 #whiteLine{
