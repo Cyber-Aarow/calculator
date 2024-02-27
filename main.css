@@ -9,6 +9,10 @@
     height: 10px;
 }
 
+#top img {
+    border-radius: 8px;
+}
+
 #display{
     height:80px;
     width: 80%;
