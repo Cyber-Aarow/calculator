@@ -44,6 +44,7 @@ button{
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
+    transition: 0.3s;
 }
 
 #plusMinus, #AC{
@@ -54,12 +55,24 @@ button{
     background-color: #333333;
 }
 
+.digit:active, .digit:hover{
+    background-color: #737373;
+}
+
 .operator{
     background-color: #ff9f0c;
 }
 
+.operator:hover{
+    background-color: #fcc78d;
+}
+
 .misc {
     background-color: #a5a5a5;
+}
+
+.misc:hover{
+    background-color: #d9d9d9;
 }
 
 #whiteLine{
