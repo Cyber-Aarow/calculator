@@ -27,6 +27,10 @@ const factorial = function(x) {
   return final_product;
 };
 
+function removeCommas(string){
+  return string.replace(',', '');
+}
+
 //Call correct function per operator choice
 const operate = function(firstNumber, operator, secondNumber){
   let answer;
@@ -102,7 +106,6 @@ for(let i = 0; i < digits.length; i++){
 
     //For easier shorthand
     let num = displayNumber.textContent;
-    console.log(num);
     if(num === '0'||
     operatorSelected === true){
       displayNumber.textContent = nextDisplayDigit;
@@ -112,17 +115,19 @@ for(let i = 0; i < digits.length; i++){
     else{
       //Handling commas
       if(num.length > 4){
-        //Move all of the current ones to the right once
+        //Move all of the current commas to the right once
         for(let i = num.length - 1; i > 0; i--){
           if(num.charAt(i) === ','){
             let movingDigit = num.charAt(i + 1);
-            num = num.substring(0, (i-1)) + movingDigit + ',' +
+            num = num.substring(0, (i)) + movingDigit + ',' +
             num.substring((i + 2), (num.length));
           }
         }
       }
+      
       //Add a new one
-      if(num.length % 3 === 0){
+      if(removeCommas(num).length % 3 === 0){
+        //console.log(removeCommas(num));
         num = num.charAt(0) + ',' +
         num.substring(1, (num.length));
       }
