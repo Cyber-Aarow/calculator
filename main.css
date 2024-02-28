@@ -30,12 +30,13 @@
     color: white;
     display: flex;
     align-items: end;
-    margin: 0px 10px 0px 10px;
+    margin: 0px 15px 0px 10px;
 }
 
 #displayNumber{
     width: 100%;
     text-align: right;
+    font-size: xx-large;
 }
 
 .row{
