@@ -174,7 +174,7 @@ equals.addEventListener("click", ()=> {
       let solutionString = solution.toString();
       
       //If commas need to be re-added
-      if(solution > 999){
+      if(solution > 999 || solution < -999){
         let solutionWithCommas = solutionString;
         let counter = 1;
         for(let i = solutionString.length - 1; i > 0; i--){
