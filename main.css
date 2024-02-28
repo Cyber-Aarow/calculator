@@ -87,6 +87,20 @@ button{
 
 .misc {
     background-color: #a5a5a5;
+    color: black;
+}
+
+.misc:hover{
+    background-color: #d9d9d9;
+}
+
+.misc:active{
+    background-color: #949292;
+}
+
+#power:focus{
+    background-color: white;
+    color: #a5a5a5;
 }
 
 #whiteLine{
