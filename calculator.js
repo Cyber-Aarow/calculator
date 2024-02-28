@@ -112,6 +112,9 @@ for(let i = 0; i < digits.length; i++){
       operatorSelected = false;
       AC.textContent = 'C';
     }
+    else if(removeCommas(num).length === 9){
+      //Do nothing
+    }
     else{
       //Handling commas
       if(num.length > 4){
@@ -158,7 +161,6 @@ let notEquals = document.querySelectorAll('.notEquals');
 for(let i = 0; i < notEquals.length; i++){
   notEquals[i].addEventListener("click", ()=> {
     firstNumber = Number(removeCommas(displayNumber.textContent));
-    console.log(firstNumber);
     operator = notEquals[i].value;
     operatorSelected = true;
   });
