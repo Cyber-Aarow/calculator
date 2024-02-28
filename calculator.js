@@ -124,7 +124,7 @@ for(let i = 0; i < digits.length; i++){
         for(let i = num.length - 1; i > 0; i--){
           if(num.charAt(i) === ','){
             let movingDigit = num.charAt(i + 1);
-            num = num.substring(0, (i)) + movingDigit + ',' +
+            num = num.substring(0, i) + movingDigit + ',' +
             num.substring((i + 2), (num.length));
           }
         }
@@ -171,7 +171,22 @@ for(let i = 0; i < notEquals.length; i++){
 equals.addEventListener("click", ()=> {
   secondNumber = Number(removeCommas(displayNumber.textContent));
       let solution = operate(firstNumber, operator, secondNumber);
-      displayNumber.textContent = solution.toString();
+      let solutionString = solution.toString();
+      
+      //If commas need to be re-added
+      if(solution > 999){
+        let solutionWithCommas = solutionString;
+        let counter = 1;
+        for(let i = solutionString.length - 1; i > 0; i--){
+          if(counter % 3 === 0){
+            solutionWithCommas = solutionWithCommas.substring(0, i) +
+            ',' + solutionWithCommas.substring(i, solutionWithCommas.length);
+          }
+          counter++;
+        }
+        solutionString = solutionWithCommas;
+      }
+      displayNumber.textContent = solutionString;
       operatorSelected = true;
       if(displayNumber.textContent === '0') AC.textContent = 'AC';
 });
