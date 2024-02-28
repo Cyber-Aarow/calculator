@@ -84,6 +84,7 @@ let firstNumber = 0;
 let operator;
 let secondNumber;
 let operatorSelected = false;
+let num;
 //For shrinking text
 let displayNumberSize = parseInt(getComputedStyle(displayNumber).getPropertyValue('font-size'));
 const displayWidth = parseInt(getComputedStyle(displayNumber.parentElement).getPropertyValue('width'));
@@ -97,6 +98,7 @@ let plusMinus = document.querySelector('#plusMinus');
 
 AC.addEventListener("click", ()=> {
   displayNumber.textContent = '0';
+  num = '';
   AC.textContent = 'AC';
   displayReset();
 });
@@ -145,7 +147,7 @@ for(let i = 0; i < digits.length; i++){
     let nextDisplayDigit = digits[i].value;
 
     //For easier shorthand
-    let num = displayNumber.textContent;
+    num = displayNumber.textContent;
     if(num === '0'||
     operatorSelected === true){
       displayReset();
@@ -181,7 +183,6 @@ for(let i = 0; i < digits.length; i++){
       
       //Add the new digit to the number
       displayNumber.textContent = num + nextDisplayDigit;
-
       displayAutoShrink();
     }   
   });
