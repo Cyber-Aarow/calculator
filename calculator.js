@@ -38,6 +38,7 @@ const operate = function(firstNumber, operator, secondNumber){
   else if(operator === '-') answer = subtract(firstNumber, secondNumber);
   else if(operator === '*') answer = multiply(firstNumber, secondNumber);
   else if(operator === '/') answer = divide(firstNumber, secondNumber);
+  else if(operator === '^') answer = power(firstNumber, secondNumber);
   return answer;
 }
 
@@ -156,6 +157,7 @@ plus.value = '+';
 minus.value = '-';
 times.value = '*';
 division.value = '/';
+pwr.value = '^';
 
 let notEquals = document.querySelectorAll('.notEquals');
 for(let i = 0; i < notEquals.length; i++){
