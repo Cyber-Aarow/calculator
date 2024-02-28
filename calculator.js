@@ -38,7 +38,6 @@ const operate = function(firstNumber, operator, secondNumber){
   else if(operator === '-') answer = subtract(firstNumber, secondNumber);
   else if(operator === '*') answer = multiply(firstNumber, secondNumber);
   else if(operator === '/') answer = divide(firstNumber, secondNumber);
-  else if(operator === '^') answer = power(firstNumber, secondNumber);
   return answer;
 }
 
@@ -111,6 +110,8 @@ for(let i = 0; i < digits.length; i++){
       displayNumber.textContent = nextDisplayDigit;
       operatorSelected = false;
       AC.textContent = 'C';
+
+
     }
     else if(removeCommas(num).length === 9){
       //Do nothing
@@ -144,18 +145,17 @@ for(let i = 0; i < digits.length; i++){
 
 
 //Operator buttons
+let pwr = document.querySelector('#power');
 let plus = document.querySelector('#plus');
 let minus = document.querySelector('#minus');
 let times = document.querySelector('#times');
 let division = document.querySelector('#divide');
 let equals = document.querySelector('#equals');
-let pwr = document.querySelector('#power');
 
 plus.value = '+';
 minus.value = '-';
 times.value = '*';
 division.value = '/';
-pwr.value = '^';
 
 let notEquals = document.querySelectorAll('.notEquals');
 for(let i = 0; i < notEquals.length; i++){
@@ -173,4 +173,3 @@ equals.addEventListener("click", ()=> {
       operatorSelected = true;
       if(displayNumber.textContent === '0') AC.textContent = 'AC';
 });
-

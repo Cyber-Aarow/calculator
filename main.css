@@ -89,19 +89,6 @@ button{
     background-color: #a5a5a5;
 }
 
-.misc:hover{
-    background-color: #d9d9d9;
-}
-
-.misc:active{
-    background-color: #807e7e;
-}
-
-.misc.operator:focus{
-    background-color: white;
-    color: #a5a5a5;
-}
-
 #whiteLine{
     background-color: white;
     height: 1.2px;
