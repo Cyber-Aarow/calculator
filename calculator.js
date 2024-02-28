@@ -92,21 +92,44 @@ eight.value = '8';
 nine.value = '9';
 decimal.value = '.';
 
-//Clicking a digit button will change the number
+
 let digits = document.querySelectorAll(".digit");
 
+//Clicking a digit button will change the number
 for(let i = 0; i < digits.length; i++){
   digits[i].addEventListener("click", ()=> {
     let nextDisplayDigit = digits[i].value;
-    if(displayNumber.textContent === '0'||
+
+    //For easier shorthand
+    let num = displayNumber.textContent;
+ 
+    if(num === '0'||
     operatorSelected === true){
       displayNumber.textContent = nextDisplayDigit;
       operatorSelected = false;
       AC.textContent = 'C';
     }
     else{
-      //if(displayNumber.textContent.length % 3 === 0)
-      displayNumber.textContent = displayNumber.textContent + nextDisplayDigit;
+      //Handling commas
+      if(num.length > 4){
+        //Move all of the current ones to the right once
+        for(let i = num.length - 1; i > 0; i--){
+          if(num.charAt(i) === ','){
+            let movingDigit = num.charAt(i + 1);
+            num = num.substring(0, (i-1)) + movingDigit + ',' +
+            num.substring((i + 2), (num.length - 1));
+          }
+        }
+      }
+      //Add a new one
+      if(num.length % 3 === 0){
+        displayNumber.textContent =
+        num.charAt(0) + ',' +
+        num.substring(1, (num.length - 1));
+      }
+      
+      //Add the new digit to the number
+      displayNumber.textContent = num + nextDisplayDigit;
     }   
   });
 }
