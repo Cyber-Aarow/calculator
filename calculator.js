@@ -157,7 +157,7 @@ pwr.value = '^';
 let notEquals = document.querySelectorAll('.notEquals');
 for(let i = 0; i < notEquals.length; i++){
   notEquals[i].addEventListener("click", ()=> {
-    firstNumber = Number(displayNumber.textContent);
+    firstNumber = Number(removeCommas(displayNumber.textContent));
     operator = notEquals[i].value;
     operatorSelected = true;
   });
