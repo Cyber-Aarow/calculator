@@ -46,6 +46,18 @@ function displayPosition(string){
   displayNumber.parentElement.style.justifyContent = string;
 }
 
+function displayAutoShrink(){
+  while(displayNumber.offsetWidth > displayWidth){
+    displayNumber.style.fontSize = displayNumberSize + 'px';
+    displayNumberSize -= 1;
+  }
+}
+
+function displayReset(){
+  displayNumber.style.fontSize = '30px';
+  displayPosition('end');
+}
+
 function clock(){
   const today = new Date();
   const hoursRaw = today.getHours();
@@ -86,6 +98,7 @@ let plusMinus = document.querySelector('#plusMinus');
 AC.addEventListener("click", ()=> {
   displayNumber.textContent = '0';
   AC.textContent = 'AC';
+  displayReset();
 });
 
 plusMinus.addEventListener("click", ()=> {
@@ -135,11 +148,10 @@ for(let i = 0; i < digits.length; i++){
     let num = displayNumber.textContent;
     if(num === '0'||
     operatorSelected === true){
-      displayNumber.style.fontSize = '30px';
+      displayReset();
       displayNumber.textContent = nextDisplayDigit;
       operatorSelected = false;
       AC.textContent = 'C';
-      displayPosition('end');
     }
     else if(removeCommas(num).length === 9){
       //Limit reached; do nothing
@@ -155,7 +167,9 @@ for(let i = 0; i < digits.length; i++){
             num.substring((i + 2), (num.length));
           }
         }
-        displayPosition('center');
+        if(Number(removeCommas(num)) > 9999 || Number(removeCommas(num)) < -9999){
+          displayPosition('center');
+        }
       }
       
       //Add a new comma
@@ -167,11 +181,8 @@ for(let i = 0; i < digits.length; i++){
       
       //Add the new digit to the number
       displayNumber.textContent = num + nextDisplayDigit;
-      //Shrink if needed
-      while(displayNumber.offsetWidth > displayWidth){
-        displayNumber.style.fontSize = displayNumberSize + 'px';
-        displayNumberSize -= 1;
-      }
+
+      displayAutoShrink();
     }   
   });
 }
@@ -220,6 +231,8 @@ equals.addEventListener("click", ()=> {
         solutionString = solutionWithCommas;
       }
       displayNumber.textContent = solutionString;
+      displayAutoShrink();
+      if(solution > 9999 || solution < -9999) displayPosition('center');
       operatorSelected = true;
       if(displayNumber.textContent === '0') AC.textContent = 'AC';
 });
