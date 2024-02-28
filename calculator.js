@@ -135,6 +135,7 @@ for(let i = 0; i < digits.length; i++){
     let num = displayNumber.textContent;
     if(num === '0'||
     operatorSelected === true){
+      displayNumber.style.fontSize = '30px';
       displayNumber.textContent = nextDisplayDigit;
       operatorSelected = false;
       AC.textContent = 'C';
@@ -157,7 +158,7 @@ for(let i = 0; i < digits.length; i++){
         displayPosition('center');
       }
       
-      //Add a new one
+      //Add a new comma
       if(removeCommas(num).length % 3 === 0){
         //console.log(removeCommas(num));
         num = num.charAt(0) + ',' +
