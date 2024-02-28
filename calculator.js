@@ -27,6 +27,17 @@ const factorial = function(x) {
   return final_product;
 };
 
+//Call correct function per operator choice
+const operate = function(firstNumber, operator, secondNumber){
+  let answer;
+  if(operator === '+') answer = add(firstNumber, secondNumber);
+  else if(operator === '-') answer = subtract(firstNumber, secondNumber);
+  else if(operator === '*') answer = multiply(firstNumber, secondNumber);
+  else if(operator === '/') answer = divide(firstNumber, secondNumber);
+  else if(operator === '^') answer = power(firstNumber, secondNumber);
+  return answer;
+}
+
 function removeCommas(string){
   return string.replaceAll(',', '');
 }
@@ -51,16 +62,7 @@ function clock(){
 clock();
 
 
-//Call correct function per operator choice
-const operate = function(firstNumber, operator, secondNumber){
-  let answer;
-  if(operator === '+') answer = add(firstNumber, secondNumber);
-  else if(operator === '-') answer = subtract(firstNumber, secondNumber);
-  else if(operator === '*') answer = multiply(firstNumber, secondNumber);
-  else if(operator === '/') answer = divide(firstNumber, secondNumber);
-  else if(operator === '^') answer = power(firstNumber, secondNumber);
-  return answer;
-}
+
 
 //Set up universal variables; set original number to 0
 let displayNumber = document.querySelector('#displayNumber');
@@ -72,6 +74,8 @@ let operatorSelected = false;
 //For shrinking text
 let displayNumberSize = parseInt(getComputedStyle(displayNumber).getPropertyValue('font-size'));
 const displayWidth = parseInt(getComputedStyle(displayNumber.parentElement).getPropertyValue('width'));
+
+
 
 //Misc buttons
 let AC = document.querySelector('#AC');
