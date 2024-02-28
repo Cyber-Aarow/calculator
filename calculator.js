@@ -62,8 +62,6 @@ function clock(){
 clock();
 
 
-
-
 //Set up universal variables; set original number to 0
 let displayNumber = document.querySelector('#displayNumber');
 displayNumber.textContent = '0';
@@ -74,6 +72,8 @@ let operatorSelected = false;
 //For shrinking text
 let displayNumberSize = parseInt(getComputedStyle(displayNumber).getPropertyValue('font-size'));
 const displayWidth = parseInt(getComputedStyle(displayNumber.parentElement).getPropertyValue('width'));
+
+
 
 
 
@@ -123,11 +123,9 @@ nine.value = '9';
 decimal.value = '.';
 
 
-let digits = document.querySelectorAll(".digit");
-
-
 
 //Clicking a digit button will change the number
+let digits = document.querySelectorAll(".digit");
 for(let i = 0; i < digits.length; i++){
   digits[i].addEventListener("click", ()=> {
     let nextDisplayDigit = digits[i].value;
