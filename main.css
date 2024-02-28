@@ -36,7 +36,8 @@
 #displayNumber{
     width: 100%;
     text-align: right;
-    font-size: xx-large;
+    font-size: 30px;
+    white-space: nowrap;
 }
 
 .row{

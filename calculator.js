@@ -69,7 +69,9 @@ let firstNumber = 0;
 let operator;
 let secondNumber;
 let operatorSelected = false;
-
+//For shrinking text
+let displayNumberSize = parseInt(getComputedStyle(displayNumber).getPropertyValue('font-size'));
+const displayWidth = parseInt(getComputedStyle(displayNumber.parentElement).getPropertyValue('width'));
 
 //Misc buttons
 let AC = document.querySelector('#AC');
@@ -119,6 +121,8 @@ decimal.value = '.';
 
 let digits = document.querySelectorAll(".digit");
 
+
+
 //Clicking a digit button will change the number
 for(let i = 0; i < digits.length; i++){
   digits[i].addEventListener("click", ()=> {
@@ -159,6 +163,11 @@ for(let i = 0; i < digits.length; i++){
       
       //Add the new digit to the number
       displayNumber.textContent = num + nextDisplayDigit;
+      //Shrink if needed
+      while(displayNumber.offsetWidth > displayWidth){
+        displayNumber.style.fontSize = displayNumberSize + 'px';
+        displayNumberSize -= 1;
+      }
     }   
   });
 }
