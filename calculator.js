@@ -37,7 +37,8 @@ function clock(){
   const minutesRaw = today.getMinutes();
 
   //Hours are base 12
-  const hours = hoursRaw > 12 ? hoursRaw - 12 : hoursRaw;
+  let hours = hoursRaw > 12 ? hoursRaw - 12 : hoursRaw;
+  if(hours === 0) hours = 12;
   //Single-digit minutes start with 0
   const minutes = minutesRaw < 10 ? '0' + minutesRaw : minutesRaw;
 
@@ -134,7 +135,7 @@ for(let i = 0; i < digits.length; i++){
 
     }
     else if(removeCommas(num).length === 9){
-      //Do nothing
+      //Limit reached; do nothing
     }
     else{
       //Handling commas
