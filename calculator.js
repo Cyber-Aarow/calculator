@@ -102,7 +102,7 @@ for(let i = 0; i < digits.length; i++){
 
     //For easier shorthand
     let num = displayNumber.textContent;
- 
+    console.log(num);
     if(num === '0'||
     operatorSelected === true){
       displayNumber.textContent = nextDisplayDigit;
@@ -117,15 +117,14 @@ for(let i = 0; i < digits.length; i++){
           if(num.charAt(i) === ','){
             let movingDigit = num.charAt(i + 1);
             num = num.substring(0, (i-1)) + movingDigit + ',' +
-            num.substring((i + 2), (num.length - 1));
+            num.substring((i + 2), (num.length));
           }
         }
       }
       //Add a new one
       if(num.length % 3 === 0){
-        displayNumber.textContent =
-        num.charAt(0) + ',' +
-        num.substring(1, (num.length - 1));
+        num = num.charAt(0) + ',' +
+        num.substring(1, (num.length));
       }
       
       //Add the new digit to the number
