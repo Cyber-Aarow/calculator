@@ -7,12 +7,23 @@
 
 #top{
     height: 10px;
+    position: relative;
 }
 
 #top img {
     border-radius: 8px;
 }
 
+#clock{
+    background-color: black;
+    color: white;
+    position: absolute;
+    font-size: 5px;
+    width: 15px;
+    margin-top: 5px;
+    margin-left: 8px;
+    font-family: 'Trebuchet MS', 'Optima', sans-serif;
+}
 #display{
     height:80px;
     width: 80%;
@@ -46,7 +57,7 @@ button{
     border-radius: 30px;
     border: none;
     color: white;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Trebuchet MS', 'Optima', sans-serif;
     text-align: center;
     transition: 0.3s;
 }
@@ -118,7 +129,3 @@ button{
     text-align: left;
 }
 
-#clock{
-    background-color: black;
-    color: white;
-}
