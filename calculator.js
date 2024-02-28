@@ -28,7 +28,7 @@ const factorial = function(x) {
 };
 
 function removeCommas(string){
-  return string.replace(',', '');
+  return string.replaceAll(',', '');
 }
 
 //Call correct function per operator choice
@@ -158,6 +158,7 @@ let notEquals = document.querySelectorAll('.notEquals');
 for(let i = 0; i < notEquals.length; i++){
   notEquals[i].addEventListener("click", ()=> {
     firstNumber = Number(removeCommas(displayNumber.textContent));
+    console.log(firstNumber);
     operator = notEquals[i].value;
     operatorSelected = true;
   });
