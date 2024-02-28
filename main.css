@@ -117,3 +117,8 @@ button{
     width: 41px;
     text-align: left;
 }
+
+#clock{
+    background-color: black;
+    color: white;
+}
