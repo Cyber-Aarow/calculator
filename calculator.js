@@ -31,6 +31,25 @@ function removeCommas(string){
   return string.replaceAll(',', '');
 }
 
+function clock(){
+  const today = new Date();
+  const hoursRaw = today.getHours();
+  const minutesRaw = today.getMinutes();
+
+  //Hours are base 12
+  const hours = hoursRaw > 12 ? hoursRaw - 12 : hoursRaw;
+  //Single-digit minutes start with 0
+  const minutes = minutesRaw < 10 ? '0' + minutesRaw : minutesRaw;
+
+  const time = hours + ':' + minutes;
+
+  document.querySelector('#clock').innerHTML = time;
+  setTimeout(clock, 1000);
+}
+
+clock();
+
+
 //Call correct function per operator choice
 const operate = function(firstNumber, operator, secondNumber){
   let answer;
