@@ -42,6 +42,10 @@ function removeCommas(string){
   return string.replaceAll(',', '');
 }
 
+function displayPosition(string){
+  displayNumber.parentElement.style.justifyContent = string;
+}
+
 function clock(){
   const today = new Date();
   const hoursRaw = today.getHours();
@@ -61,7 +65,6 @@ function clock(){
 
 clock();
 
-
 //Set up universal variables; set original number to 0
 let displayNumber = document.querySelector('#displayNumber');
 displayNumber.textContent = '0';
@@ -72,8 +75,6 @@ let operatorSelected = false;
 //For shrinking text
 let displayNumberSize = parseInt(getComputedStyle(displayNumber).getPropertyValue('font-size'));
 const displayWidth = parseInt(getComputedStyle(displayNumber.parentElement).getPropertyValue('width'));
-
-
 
 
 
@@ -137,8 +138,7 @@ for(let i = 0; i < digits.length; i++){
       displayNumber.textContent = nextDisplayDigit;
       operatorSelected = false;
       AC.textContent = 'C';
-
-
+      displayPosition('end');
     }
     else if(removeCommas(num).length === 9){
       //Limit reached; do nothing
@@ -154,6 +154,7 @@ for(let i = 0; i < digits.length; i++){
             num.substring((i + 2), (num.length));
           }
         }
+        displayPosition('center');
       }
       
       //Add a new one

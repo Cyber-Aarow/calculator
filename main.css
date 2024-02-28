@@ -31,11 +31,11 @@
     display: flex;
     align-items: end;
     justify-content: end;
-    margin: 0px 15px 0px 10px;
+    margin: 0px 0px 0px 9.5px;
 }
 
 #displayNumber{
-    text-align: right;
+    text-align: center;
     font-size: 30px;
     white-space: nowrap;
 }
