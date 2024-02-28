@@ -164,7 +164,7 @@ for(let i = 0; i < notEquals.length; i++){
 }
 
 equals.addEventListener("click", ()=> {
-  secondNumber = Number(displayNumber.textContent);
+  secondNumber = Number(removeCommas(displayNumber.textContent));
       let solution = operate(firstNumber, operator, secondNumber);
       displayNumber.textContent = solution.toString();
       operatorSelected = true;
