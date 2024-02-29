@@ -85,6 +85,11 @@ let operator;
 let secondNumber;
 let operatorSelected = false;
 let num;
+
+//For audio
+const audio = new Audio("button_press.mp3");
+audio.preload = 'auto';
+
 //For shrinking text
 let displayNumberSize = parseInt(getComputedStyle(displayNumber).getPropertyValue('font-size'));
 const displayWidth = parseInt(getComputedStyle(displayNumber.parentElement).getPropertyValue('width'));
@@ -144,6 +149,7 @@ decimal.value = '.';
 let digits = document.querySelectorAll(".digit");
 for(let i = 0; i < digits.length; i++){
   digits[i].addEventListener("click", ()=> {
+    audio.play();
     let nextDisplayDigit = digits[i].value;
 
     //For easier shorthand
