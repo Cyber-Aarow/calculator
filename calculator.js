@@ -56,6 +56,7 @@ function displayAutoShrink(){
 function displayReset(){
   displayNumber.style.fontSize = '30px';
   displayPosition('end');
+  displayNumberSize = 30;
 }
 
 function clock(){
