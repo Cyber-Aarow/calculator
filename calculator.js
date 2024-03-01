@@ -145,6 +145,7 @@ decimal.value = '.';
 let digits = document.querySelectorAll(".digit");
 for(let i = 0; i < digits.length; i++){
   digits[i].addEventListener("click", ()=> {
+    document.querySelector('#audio').play();
     let nextDisplayDigit = digits[i].value;
 
     //For easier shorthand
@@ -184,6 +185,7 @@ for(let i = 0; i < digits.length; i++){
       
       //Add the new digit to the number
       displayNumber.textContent = num + nextDisplayDigit;
+
       displayAutoShrink();
     }   
   });
