@@ -98,6 +98,7 @@ let plusMinus = document.querySelector('#plusMinus');
 
 
 AC.addEventListener("click", ()=> {
+  document.querySelector('#audio').play();
   displayNumber.textContent = '0';
   num = '';
   AC.textContent = 'AC';
@@ -105,6 +106,7 @@ AC.addEventListener("click", ()=> {
 });
 
 plusMinus.addEventListener("click", ()=> {
+  document.querySelector('#audio').play();
   if(displayNumber.textContent.includes('-')){
     displayNumber.textContent = displayNumber.textContent.replace('-', '');
   }
@@ -210,6 +212,7 @@ pwr.value = '^';
 let notEquals = document.querySelectorAll('.notEquals');
 for(let i = 0; i < notEquals.length; i++){
   notEquals[i].addEventListener("click", ()=> {
+    document.querySelector('#audio').play();
     firstNumber = Number(removeCommas(displayNumber.textContent));
     operator = notEquals[i].value;
     operatorSelected = true;
@@ -217,6 +220,7 @@ for(let i = 0; i < notEquals.length; i++){
 }
 
 equals.addEventListener("click", ()=> {
+  document.querySelector('#audio').play();
   secondNumber = Number(removeCommas(displayNumber.textContent));
       let solution = operate(firstNumber, operator, secondNumber);
       let solutionString = solution.toString();
