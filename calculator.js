@@ -82,8 +82,8 @@ clock();
 let displayNumber = document.querySelector('#displayNumber');
 displayNumber.textContent = '0';
 let firstNumber = 0;
-let operator;
-let secondNumber;
+let operator = 'none';
+let secondNumber = 0;
 let operatorSelected = false;
 let num;
 //For shrinking text
@@ -180,14 +180,13 @@ for(let i = 0; i < digits.length; i++){
       
       //Add a new comma
       if(removeCommas(num).length % 3 === 0){
-        //console.log(removeCommas(num));
+        
         num = num.charAt(0) + ',' +
         num.substring(1, (num.length));
       }
       
       //Add the new digit to the number
       displayNumber.textContent = num + nextDisplayDigit;
-
       displayAutoShrink();
     }   
   });
@@ -222,7 +221,11 @@ for(let i = 0; i < notEquals.length; i++){
 equals.addEventListener("click", ()=> {
   document.querySelector('#audio').play();
   secondNumber = Number(removeCommas(displayNumber.textContent));
-      let solution = operate(firstNumber, operator, secondNumber);
+  if(operator === 'none'){
+    operatorSelected = true;
+  }
+  else{    
+    let solution = operate(firstNumber, operator, secondNumber);
       let solutionString = solution.toString();
       
       //If commas need to be re-added
@@ -243,4 +246,5 @@ equals.addEventListener("click", ()=> {
       if(solution > 9999 || solution < -9999) displayPosition('center');
       operatorSelected = true;
       if(displayNumber.textContent === '0') AC.textContent = 'AC';
+  }
 });
