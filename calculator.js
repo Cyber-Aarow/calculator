@@ -102,6 +102,7 @@ AC.addEventListener("click", ()=> {
   displayNumber.textContent = '0';
   num = '';
   AC.textContent = 'AC';
+  firstNumber = 0;
   displayReset();
 });
 
@@ -159,7 +160,10 @@ for(let i = 0; i < digits.length; i++){
       operatorSelected = false;
       AC.textContent = 'C';
     }
-    else if(removeCommas(num).length === 9){
+    else if(firstNumber > 0 && removeCommas(num).length === 9){
+      //Limit reached; do nothing
+    }
+    else if(firstNumber < 0 && removeCommas(num).length === 10){
       //Limit reached; do nothing
     }
     else{
@@ -170,7 +174,7 @@ for(let i = 0; i < digits.length; i++){
           if(num.charAt(i) === ','){
             let movingDigit = num.charAt(i + 1);
             num = num.substring(0, i) + movingDigit + ',' +
-            num.substring((i + 2), (num.length));
+            num.substring((i + 2), num.length);
           }
         }
         if(Number(removeCommas(num)) > 9999 || Number(removeCommas(num)) < -9999){
@@ -179,14 +183,20 @@ for(let i = 0; i < digits.length; i++){
       } 
       
       //Add a new comma
-      if(removeCommas(num).length % 3 === 0){
-        
-        num = num.charAt(0) + ',' +
-        num.substring(1, (num.length));
+      if(firstNumber.toString().length % 3 === 0){
+        if(firstNumber > 0){
+          num = num.charAt(0) + ',' +
+          num.substring(1, num.length);
+        }
+        else{
+          num = num.substring(0, 2) + ',' +
+          num.substring(2, num.length);
+        }
       }
       
       //Add the new digit to the number
       displayNumber.textContent = num + nextDisplayDigit;
+      firstNumber = removeCommas(displayNumber.textContent);
       displayAutoShrink();
     }   
   });
