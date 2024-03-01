@@ -176,7 +176,7 @@ for(let i = 0; i < digits.length; i++){
         if(Number(removeCommas(num)) > 9999 || Number(removeCommas(num)) < -9999){
           displayPosition('center');
         }
-      }
+      } 
       
       //Add a new comma
       if(removeCommas(num).length % 3 === 0){
@@ -230,7 +230,7 @@ equals.addEventListener("click", ()=> {
         let solutionWithCommas = solutionString;
         let counter = 1;
         for(let i = solutionString.length - 1; i > 0; i--){
-          if(counter % 3 === 0){
+          if(counter % 3 === 0 && solutionString.charAt(i - 1) != '-'){
             solutionWithCommas = solutionWithCommas.substring(0, i) +
             ',' + solutionWithCommas.substring(i, solutionWithCommas.length);
           }
