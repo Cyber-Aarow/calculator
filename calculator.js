@@ -188,7 +188,8 @@ for(let i = 0; i < digits.length; i++){
           num = num.charAt(0) + ',' +
           num.substring(1, num.length);
         }
-        else{
+        //Making it positive first to avoid -1,00 glitch
+        else if((firstNumber * -1).toString().length % 3 === 0){
           num = num.substring(0, 2) + ',' +
           num.substring(2, num.length);
         }
