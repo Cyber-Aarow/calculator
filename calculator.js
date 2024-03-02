@@ -80,8 +80,8 @@ clock();
 
 function createNumber(input){
   document.querySelector('#audio').play();
-    let nextDisplayDigit = input;
-
+  let nextDisplayDigit = input;
+  currentNumber = removeCommas(displayNumber.textContent);
     //For easier shorthand
     num = displayNumber.textContent;
     if(num === '0'||
@@ -115,6 +115,7 @@ function createNumber(input){
       
       //Add a new comma
       if(currentNumber.toString().length % 3 === 0){
+        console.log(currentNumber.toString());
         if(currentNumber > 0){
           num = num.charAt(0) + ',' +
           num.substring(1, num.length);
@@ -128,7 +129,7 @@ function createNumber(input){
       
       //Add the new digit to the number
       displayNumber.textContent = num + nextDisplayDigit;
-      currentNumber = removeCommas(displayNumber.textContent);
+      
       displayAutoShrink();
     } 
 }
