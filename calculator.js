@@ -140,10 +140,16 @@ function activateOperator(input){
   operatorSelected = true;
 }
 
-window.onkeydown = function(keyPressed){
-  if(Number.isInteger(Number(keyPressed.key)) || keyPressed.key === '.'){
-    createNumber(keyPressed.key);
+//Keyboard use enabled
+window.onkeydown = function(e){
+  let keyPressed = e.key;
+  if(Number.isInteger(Number(keyPressed)) || keyPressed === '.'){
+    createNumber(keyPressed);
   }
+  else if(keyPressed === '+' || keyPressed === '-' ||
+          keyPressed === '*' || keyPressed === '/'){
+            activateOperator(keyPressed);
+          }
 }
 
 //Set up universal variables; set original number to 0
