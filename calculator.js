@@ -134,8 +134,7 @@ function createNumber(input){
 }
 
 window.onkeydown = function(keyPressed){
-  console.log(keyPressed.key);
-  if(Number.isInteger(keyPressed.key) || keyPressed.key === '.'){
+  if(Number.isInteger(Number(keyPressed.key)) || keyPressed.key === '.'){
     console.log("Activated");
     createNumber(keyPressed.key);
   }
