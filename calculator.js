@@ -133,10 +133,13 @@ function createNumber(input){
     } 
 }
 
-/*window.onkeydown = function(keyPressed){
-  if(Number.isInteger(keyPressed.key) || keyPressed.key === '.')
-
-}*/
+window.onkeydown = function(keyPressed){
+  console.log(keyPressed.key);
+  if(Number.isInteger(keyPressed.key) || keyPressed.key === '.'){
+    console.log("Activated");
+    createNumber(keyPressed.key);
+  }
+}
 
 //Set up universal variables; set original number to 0
 let displayNumber = document.querySelector('#displayNumber');
