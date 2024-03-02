@@ -91,10 +91,10 @@ function createNumber(input){
       operatorSelected = false;
       AC.textContent = 'C';
     }
-    else if(firstNumber > 0 && removeCommas(num).length === 9){
+    else if(currentNumber > 0 && removeCommas(num).length === 9){
       //Limit reached; do nothing
     }
-    else if(firstNumber < 0 && removeCommas(num).length === 10){
+    else if(currentNumber < 0 && removeCommas(num).length === 10){
       //Limit reached; do nothing
     }
     else{
@@ -114,13 +114,13 @@ function createNumber(input){
       } 
       
       //Add a new comma
-      if(firstNumber.toString().length % 3 === 0){
-        if(firstNumber > 0){
+      if(currentNumber.toString().length % 3 === 0){
+        if(currentNumber > 0){
           num = num.charAt(0) + ',' +
           num.substring(1, num.length);
         }
         //Making it positive first to avoid -1,00 glitch
-        else if((firstNumber * -1).toString().length % 3 === 0){
+        else if((currentNumber * -1).toString().length % 3 === 0){
           num = num.substring(0, 2) + ',' +
           num.substring(2, num.length);
         }
@@ -128,7 +128,7 @@ function createNumber(input){
       
       //Add the new digit to the number
       displayNumber.textContent = num + nextDisplayDigit;
-      firstNumber = removeCommas(displayNumber.textContent);
+      currentNumber = removeCommas(displayNumber.textContent);
       displayAutoShrink();
     } 
 }
@@ -155,6 +155,7 @@ window.onkeydown = function(e){
 //Set up universal variables; set original number to 0
 let displayNumber = document.querySelector('#displayNumber');
 displayNumber.textContent = '0';
+let currentNumber = 0;
 let firstNumber = 0;
 let operator = 'none';
 let secondNumber = 0;
