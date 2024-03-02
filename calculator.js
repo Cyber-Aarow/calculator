@@ -176,12 +176,25 @@ window.onkeydown = function(e){
   let keyPressed = e.key;
   if(Number.isInteger(Number(keyPressed)) || keyPressed === '.'){
     createNumber(keyPressed);
+    for(let i = 0; i < digits.length; i++){
+      if(digits[i].value === keyPressed){
+        digits[i].focus();
+      }
+    }
   }
   else if(keyPressed === '+' || keyPressed === '-' ||
           keyPressed === '*' || keyPressed === '/'){
             activateOperator(keyPressed);
+            for(let i = 0; i < operators.length; i++){
+              if(operators[i].value === keyPressed){
+                operators[i].focus();
+              }
+            }
           }
-  else if(keyPressed === '=' || keyPressed === 'enter') useEquals();
+  else if(keyPressed === '=' || keyPressed === 'enter'){
+    useEquals();
+    equals.focus();
+  }
 }
 
 //Set up universal variables; set original number to 0
@@ -273,10 +286,10 @@ times.value = '*';
 division.value = '/';
 pwr.value = '^';
 
-let notEquals = document.querySelectorAll('.notEquals');
-for(let i = 0; i < notEquals.length; i++){
-  notEquals[i].addEventListener("click", ()=> {
-    activateOperator(notEquals[i].value);
+let operators = document.querySelectorAll('.notEquals');
+for(let i = 0; i < operators.length; i++){
+  operators[i].addEventListener("click", ()=> {
+    activateOperator(operators[i].value);
   });
 }
 
