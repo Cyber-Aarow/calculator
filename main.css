@@ -3,7 +3,7 @@
     width: 97.5px;
     height: 211px;
     border-radius: 8px;
-    font-family: 'Helvetica', 'Trebuchet MS', 'Optima', sans-serif;
+    font-family: Helvetica, 'Trebuchet MS', 'Optima', sans-serif;
 }
 
 #top{
@@ -62,10 +62,12 @@ button{
     color: white;
     text-align: center;
     transition: 0.3s;
+    font-size: 10px;
 }
 
 #plusMinus, #AC{
-    font-size: 0.25em;
+    font-size: 5px;
+    text-align:left;
 }
 
 .digit {
