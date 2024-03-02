@@ -181,6 +181,7 @@ window.onkeydown = function(e){
           keyPressed === '*' || keyPressed === '/'){
             activateOperator(keyPressed);
           }
+  else if(keyPressed === '=' || keyPressed === 'enter') useEquals();
 }
 
 //Set up universal variables; set original number to 0
