@@ -133,9 +133,15 @@ function createNumber(input){
     } 
 }
 
+function activateOperator(input){
+  document.querySelector('#audio').play();
+  firstNumber = Number(removeCommas(displayNumber.textContent));
+  operator = input;
+  operatorSelected = true;
+}
+
 window.onkeydown = function(keyPressed){
   if(Number.isInteger(Number(keyPressed.key)) || keyPressed.key === '.'){
-    console.log("Activated");
     createNumber(keyPressed.key);
   }
 }
@@ -231,10 +237,7 @@ pwr.value = '^';
 let notEquals = document.querySelectorAll('.notEquals');
 for(let i = 0; i < notEquals.length; i++){
   notEquals[i].addEventListener("click", ()=> {
-    document.querySelector('#audio').play();
-    firstNumber = Number(removeCommas(displayNumber.textContent));
-    operator = notEquals[i].value;
-    operatorSelected = true;
+    activateOperator(notEquals[i].value);
   });
 }
 
