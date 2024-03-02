@@ -78,6 +78,66 @@ function clock(){
 
 clock();
 
+function createNumber(input){
+  document.querySelector('#audio').play();
+    let nextDisplayDigit = input;
+
+    //For easier shorthand
+    num = displayNumber.textContent;
+    if(num === '0'||
+    operatorSelected === true){
+      displayReset();
+      displayNumber.textContent = nextDisplayDigit;
+      operatorSelected = false;
+      AC.textContent = 'C';
+    }
+    else if(firstNumber > 0 && removeCommas(num).length === 9){
+      //Limit reached; do nothing
+    }
+    else if(firstNumber < 0 && removeCommas(num).length === 10){
+      //Limit reached; do nothing
+    }
+    else{
+      //Handling commas
+      if(num.length > 4){
+        //Move all of the current commas to the right once
+        for(let i = num.length - 1; i > 0; i--){
+          if(num.charAt(i) === ','){
+            let movingDigit = num.charAt(i + 1);
+            num = num.substring(0, i) + movingDigit + ',' +
+            num.substring((i + 2), num.length);
+          }
+        }
+        if(Number(removeCommas(num)) > 9999 || Number(removeCommas(num)) < -9999){
+          displayPosition('center');
+        }
+      } 
+      
+      //Add a new comma
+      if(firstNumber.toString().length % 3 === 0){
+        if(firstNumber > 0){
+          num = num.charAt(0) + ',' +
+          num.substring(1, num.length);
+        }
+        //Making it positive first to avoid -1,00 glitch
+        else if((firstNumber * -1).toString().length % 3 === 0){
+          num = num.substring(0, 2) + ',' +
+          num.substring(2, num.length);
+        }
+      }
+      
+      //Add the new digit to the number
+      displayNumber.textContent = num + nextDisplayDigit;
+      firstNumber = removeCommas(displayNumber.textContent);
+      displayAutoShrink();
+    } 
+}
+
+/*window.onkeydown = function(keyPressed){
+  if(Number.isInteger(keyPressed.key) || keyPressed.key === '.')
+
+}*/
+
 //Set up universal variables; set original number to 0
 let displayNumber = document.querySelector('#displayNumber');
 displayNumber.textContent = '0';
@@ -147,60 +207,7 @@ decimal.value = '.';
 //Clicking a digit button will change the number
 let digits = document.querySelectorAll(".digit");
 for(let i = 0; i < digits.length; i++){
-  digits[i].addEventListener("click", ()=> {
-    document.querySelector('#audio').play();
-    let nextDisplayDigit = digits[i].value;
-
-    //For easier shorthand
-    num = displayNumber.textContent;
-    if(num === '0'||
-    operatorSelected === true){
-      displayReset();
-      displayNumber.textContent = nextDisplayDigit;
-      operatorSelected = false;
-      AC.textContent = 'C';
-    }
-    else if(firstNumber > 0 && removeCommas(num).length === 9){
-      //Limit reached; do nothing
-    }
-    else if(firstNumber < 0 && removeCommas(num).length === 10){
-      //Limit reached; do nothing
-    }
-    else{
-      //Handling commas
-      if(num.length > 4){
-        //Move all of the current commas to the right once
-        for(let i = num.length - 1; i > 0; i--){
-          if(num.charAt(i) === ','){
-            let movingDigit = num.charAt(i + 1);
-            num = num.substring(0, i) + movingDigit + ',' +
-            num.substring((i + 2), num.length);
-          }
-        }
-        if(Number(removeCommas(num)) > 9999 || Number(removeCommas(num)) < -9999){
-          displayPosition('center');
-        }
-      } 
-      
-      //Add a new comma
-      if(firstNumber.toString().length % 3 === 0){
-        if(firstNumber > 0){
-          num = num.charAt(0) + ',' +
-          num.substring(1, num.length);
-        }
-        //Making it positive first to avoid -1,00 glitch
-        else if((firstNumber * -1).toString().length % 3 === 0){
-          num = num.substring(0, 2) + ',' +
-          num.substring(2, num.length);
-        }
-      }
-      
-      //Add the new digit to the number
-      displayNumber.textContent = num + nextDisplayDigit;
-      firstNumber = removeCommas(displayNumber.textContent);
-      displayAutoShrink();
-    }   
-  });
+  digits[i].addEventListener("click", ()=> {createNumber(digits[i].value);});
 }
 
 
