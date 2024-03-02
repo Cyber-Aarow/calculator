@@ -173,8 +173,8 @@ function useEquals(){
 
 //Keyboard use enabled
 window.onkeydown = function(e){
+  e.preventDefault();
   let keyPressed = e.key;
-  console.log(e);
   if(Number.isInteger(Number(keyPressed)) || keyPressed === '.'){
     createNumber(keyPressed);
     for(let i = 0; i < digits.length; i++){
@@ -193,6 +193,7 @@ window.onkeydown = function(e){
             }
           }
   else if(keyPressed === '=' || keyPressed === 'Enter'){
+    console.log(keyPressed);
     useEquals();
     equals.focus();
   }
