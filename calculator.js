@@ -115,7 +115,6 @@ function createNumber(input){
       
       //Add a new comma
       if(currentNumber.toString().length % 3 === 0){
-        console.log(currentNumber.toString());
         if(currentNumber > 0){
           num = num.charAt(0) + ',' +
           num.substring(1, num.length);
@@ -175,6 +174,7 @@ function useEquals(){
 //Keyboard use enabled
 window.onkeydown = function(e){
   let keyPressed = e.key;
+  console.log(e);
   if(Number.isInteger(Number(keyPressed)) || keyPressed === '.'){
     createNumber(keyPressed);
     for(let i = 0; i < digits.length; i++){
@@ -192,7 +192,7 @@ window.onkeydown = function(e){
               }
             }
           }
-  else if(keyPressed === '=' || keyPressed === 'enter'){
+  else if(keyPressed === '=' || keyPressed === 'Enter'){
     useEquals();
     equals.focus();
   }
