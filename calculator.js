@@ -140,6 +140,37 @@ function activateOperator(input){
   operatorSelected = true;
 }
 
+function useEquals(){
+  document.querySelector('#audio').play();
+  secondNumber = Number(removeCommas(displayNumber.textContent));
+  if(operator === 'none'){
+    operatorSelected = true;
+  }
+  else{    
+    let solution = operate(firstNumber, operator, secondNumber);
+      let solutionString = solution.toString();
+      
+      //If commas need to be re-added
+      if(solution > 999 || solution < -999){
+        let solutionWithCommas = solutionString;
+        let counter = 1;
+        for(let i = solutionString.length - 1; i > 0; i--){
+          if(counter % 3 === 0 && solutionString.charAt(i - 1) != '-'){
+            solutionWithCommas = solutionWithCommas.substring(0, i) +
+            ',' + solutionWithCommas.substring(i, solutionWithCommas.length);
+          }
+          counter++;
+        }
+        solutionString = solutionWithCommas;
+      }
+      displayNumber.textContent = solutionString;
+      displayAutoShrink();
+      if(solution > 9999 || solution < -9999) displayPosition('center');
+      operatorSelected = true;
+      if(displayNumber.textContent === '0') AC.textContent = 'AC';
+  }
+}
+
 //Keyboard use enabled
 window.onkeydown = function(e){
   let keyPressed = e.key;
@@ -249,32 +280,5 @@ for(let i = 0; i < notEquals.length; i++){
 }
 
 equals.addEventListener("click", ()=> {
-  document.querySelector('#audio').play();
-  secondNumber = Number(removeCommas(displayNumber.textContent));
-  if(operator === 'none'){
-    operatorSelected = true;
-  }
-  else{    
-    let solution = operate(firstNumber, operator, secondNumber);
-      let solutionString = solution.toString();
-      
-      //If commas need to be re-added
-      if(solution > 999 || solution < -999){
-        let solutionWithCommas = solutionString;
-        let counter = 1;
-        for(let i = solutionString.length - 1; i > 0; i--){
-          if(counter % 3 === 0 && solutionString.charAt(i - 1) != '-'){
-            solutionWithCommas = solutionWithCommas.substring(0, i) +
-            ',' + solutionWithCommas.substring(i, solutionWithCommas.length);
-          }
-          counter++;
-        }
-        solutionString = solutionWithCommas;
-      }
-      displayNumber.textContent = solutionString;
-      displayAutoShrink();
-      if(solution > 9999 || solution < -9999) displayPosition('center');
-      operatorSelected = true;
-      if(displayNumber.textContent === '0') AC.textContent = 'AC';
-  }
+  useEquals();
 });
